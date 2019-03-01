@@ -7,7 +7,7 @@ interface FlashCardProps {
 interface FlascardState {}
 
 export default class Flashcard extends Component<FlashCardProps, FlascardState> {
-  constructor(props) {
+  constructor(props: FlashCardProps) {
     super(props);
   }
   render() {
