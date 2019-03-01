@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Flashcard extends Component {
-  render() {
-    return <div>Flashcard</div>;
-  }
-}
+const Flashcard = () => {
+  return <div>Flashcard</div>;
+};
+
+export default Flashcard;

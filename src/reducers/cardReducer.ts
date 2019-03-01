@@ -15,7 +15,7 @@ export default function(state = intialState, action: any) {
     case GET_CARDS:
       return {
         ...state,
-        profile: action.payload,
+        cards: action.payload,
         loading: false
       };
     default:
