@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Flashcard = () => {
-  return <div>Flashcard</div>;
-};
+interface FlashCardProps {
+  isFlipped: boolean;
+}
 
-export default Flashcard;
+interface FlascardState {}
+
+export default class Flashcard extends Component<FlashCardProps, FlascardState> {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return <div />;
+  }
+}
