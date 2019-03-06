@@ -11,13 +11,15 @@ interface HomeProps {
 
 interface HomeState {
   currentCardIndex: number;
+  isFlipped: boolean;
 }
 
 class Home extends Component<HomeProps, HomeState> {
   constructor(props: any) {
     super(props);
-    this.state = { currentCardIndex: 0 };
+    this.state = { currentCardIndex: 0, isFlipped: true };
     this.getNextCard = this.getNextCard.bind(this);
+    this.getFlipcardState = this.getFlipcardState.bind(this);
   }
 
   componentDidMount() {
@@ -35,6 +37,10 @@ class Home extends Component<HomeProps, HomeState> {
     }
   }
 
+  getFlipcardState(flipcardState: boolean) {
+    this.setState({ isFlipped: flipcardState });
+  }
+
   render() {
     return (
       <div>
@@ -46,10 +52,25 @@ class Home extends Component<HomeProps, HomeState> {
                   <div className="column is-one-third" />
                   <div className="column is-one-third">
                     {this.props.deck.cards && (
-                      <Flashcard
-                        currentCard={this.props.deck.cards[this.state.currentCardIndex]}
-                        getNextCard={this.getNextCard}
-                      />
+                      <div>
+                        <Flashcard
+                          currentCard={this.props.deck.cards[this.state.currentCardIndex]}
+                          getFlipcardState={this.getFlipcardState}
+                          getNextCard={this.getNextCard}
+                        />
+                        {this.state.isFlipped && (
+                          <div className="buttons is-centered">
+                            <button
+                              className="button"
+                              onClick={() => {
+                                this.getNextCard();
+                              }}
+                            >
+                              Next
+                            </button>
+                          </div>
+                        )}
+                      </div>
                     )}
                   </div>
                   <div className="column is-one-third" />

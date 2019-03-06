@@ -3,6 +3,7 @@ import ReactCardFlip from 'react-card-flip';
 
 interface FlashCardProps {
   getNextCard: () => void;
+  getFlipcardState: (flipcardState: boolean) => void;
   currentCard: any;
 }
 
@@ -21,14 +22,17 @@ export default class Flashcard extends Component<FlashCardProps, FlascardState> 
   handleClick(e) {
     e.preventDefault();
     this.setState((prevState) => ({ isFlipped: !prevState.isFlipped }));
+    this.props.getFlipcardState(this.state.isFlipped);
   }
 
   showBack() {
     this.setState({ isFlipped: true });
+    this.props.getFlipcardState(this.state.isFlipped);
   }
 
   showFront() {
     this.setState({ isFlipped: false });
+    this.props.getFlipcardState(this.state.isFlipped);
   }
 
   addScore() {
@@ -57,9 +61,9 @@ export default class Flashcard extends Component<FlashCardProps, FlascardState> 
           </div>
         </ReactCardFlip>
         {this.state.isFlipped ? (
-          <div className="bottom-buttons">
+          <div className="buttons is-centered">
             <button
-              className="btn btn-default incorrect-button"
+              className="button"
               onClick={() => {
                 this.showFront();
                 this.props.getNextCard();
@@ -67,7 +71,7 @@ export default class Flashcard extends Component<FlashCardProps, FlascardState> 
             >
               I was wrong!
             </button>
-            <button className="btn btn-default correct-button" onClick={() => this.addScore()}>
+            <button className="button" onClick={() => this.addScore()}>
               I was right!
             </button>
           </div>
