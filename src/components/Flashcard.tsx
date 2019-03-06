@@ -47,7 +47,9 @@ export default class Flashcard extends Component<FlashCardProps, FlascardState> 
           <div key="front" onClick={this.handleClick}>
             <div className="card large">
               <div className="card-content">
-                <div className="content">{this.props.currentCard['word']}</div>
+                <div className="content is-flex is-vcentered is-size-2">
+                  {this.props.currentCard['word']}
+                </div>
               </div>
             </div>
           </div>
@@ -55,7 +57,9 @@ export default class Flashcard extends Component<FlashCardProps, FlascardState> 
           <div key="back" onClick={this.handleClick}>
             <div className="card large">
               <div className="card-content">
-                <div className="content">{this.props.currentCard['meaning']}</div>
+                <div className="content is-flex is-vcentered is-size-5">
+                  {this.props.currentCard['meaning']}
+                </div>
               </div>
             </div>
           </div>
@@ -63,7 +67,7 @@ export default class Flashcard extends Component<FlashCardProps, FlascardState> 
         {this.state.isFlipped ? (
           <div className="buttons is-centered">
             <button
-              className="button"
+              className="button is-danger"
               onClick={() => {
                 this.showFront();
                 this.props.getNextCard();
@@ -71,7 +75,7 @@ export default class Flashcard extends Component<FlashCardProps, FlascardState> 
             >
               I was wrong!
             </button>
-            <button className="button" onClick={() => this.addScore()}>
+            <button className="button is-success" onClick={() => this.addScore()}>
               I was right!
             </button>
           </div>

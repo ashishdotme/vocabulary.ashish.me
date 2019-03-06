@@ -61,7 +61,7 @@ class Home extends Component<HomeProps, HomeState> {
                         {this.state.isFlipped && (
                           <div className="buttons is-centered">
                             <button
-                              className="button"
+                              className="button is-info"
                               onClick={() => {
                                 this.getNextCard();
                               }}

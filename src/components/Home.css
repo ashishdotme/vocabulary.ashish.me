@@ -13,8 +13,20 @@ body {
   margin-bottom: 1rem;
 }
 
-.media-content {
-  overflow: hidden;
+.card-content {
+  height: 300px;
+}
+
+.content {
+  height: 100%;
+}
+
+.content.is-vcentered {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center; /* used this for multiple child */
+  align-items: center; /* if an only child */
 }
 
 .title.no-padding {
