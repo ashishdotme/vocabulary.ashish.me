@@ -42,6 +42,8 @@ class Home extends Component<HomeProps, HomeState> {
   }
 
   render() {
+    const { deck } = this.props;
+    const cards = deck.cards && deck.cards.length > 0 && deck.cards.sort(() => Math.random() - 0.5);
     return (
       <div>
         <section className="hero is-fullheight">
@@ -54,7 +56,7 @@ class Home extends Component<HomeProps, HomeState> {
                     {this.props.deck.cards && (
                       <div>
                         <Flashcard
-                          currentCard={this.props.deck.cards[this.state.currentCardIndex]}
+                          currentCard={cards[this.state.currentCardIndex]}
                           getFlipcardState={this.getFlipcardState}
                           getNextCard={this.getNextCard}
                         />
