@@ -1,5 +1,5 @@
 body {
-  background: #041221;
+  background: #7c5cd1;
 }
 .card {
   overflow: hidden;
@@ -9,8 +9,9 @@ body {
   height: 300px;
   -webkit-backface-visibility: hidden;
   backface-visibility: initial;
-  border-radius: 5px;
+  border-radius: 10px;
   margin-bottom: 1rem;
+  box-shadow: 3px 3px 60px 0 rgba(0, 0, 0, 0.35);
 }
 
 .card-content {
