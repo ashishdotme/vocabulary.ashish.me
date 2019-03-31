@@ -4,6 +4,7 @@
   "private": true,
   "author": "Ashish Patel",
   "website": "ashish.me",
+  "license": "MIT",
   "repository": "https://github.com/ashishdotme/vocabulary.ashish.me",
   "dependencies": {
     "@types/jest": "24.0.9",
