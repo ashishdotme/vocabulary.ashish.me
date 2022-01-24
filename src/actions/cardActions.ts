@@ -4,7 +4,7 @@ import { GET_CARDS, CARDS_LOADING } from './types';
 
 export const getDeck = () => (dispatch: Dispatch) => {
   axios
-    .get('https://api.ashish.me/words')
+    .get('https://systemapi.prod.ashish.me/words')
     .then((res) =>
       dispatch({
         type: GET_CARDS,
